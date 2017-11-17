@@ -34,14 +34,14 @@
     <form action="/search" method="get">
         <h2>Plate: </h2>
         <label for="Plate"></label>
-        <input type="text" name="inputPlate" />
+        <input type="text" name="inputPlate" value="[Required format: XXX-000]" />
         <br><button type="submit">Search</button>
 
         <h2><a href="/search">Police cars only</a></h2>
         <input type="hidden" name="inputPlate" />
 
-        <h2><a href="/search">Diplomats only</a></h2>
-        <input type="hidden" name="inputPlate" />
+        <h2><a href="/search" type="text/asp">Diplomats only</a></h2>
+        <input type="hidden" name="inputPlate"/>
     </form>
 </body>
 </html>

@@ -25,5 +25,15 @@ namespace SpringBootApp.Services
         {
             return SpringBootAppRepository.GetBrandList(inputBrand);
         }
+
+        public List<LicencePlate> GetPoliceCarsForUser(string inputPlate)
+        {
+            return SpringBootAppRepository.GetPoliceCars(inputPlate);
+        }
+
+        public List<LicencePlate> GetDiplomatCarsForUser(string inputPlate)
+        {
+            return SpringBootAppRepository.GetDiplomatCars(inputPlate);
+        }
     }
 }

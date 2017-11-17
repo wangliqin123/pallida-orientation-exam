@@ -17,18 +17,15 @@ namespace SpringBootApp.Controllers
             SpringBootAppService = springBootAppService;
         }
 
-        //[HttpGet]
-        //[Route("/search")]
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
-
         [HttpGet]
         [Route("/{inputPlate}")]
         public IActionResult Index([FromQuery] string inputPlate)
         {
-            return View(SpringBootAppService.GetLicencePlateListForUser(inputPlate));
+            if (ModelState.IsValid)
+            {
+                return View(SpringBootAppService.GetLicencePlateListForUser(inputPlate));
+            }
+            return View();
         }
 
         [HttpGet]

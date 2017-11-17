@@ -20,5 +20,10 @@ namespace SpringBootApp.Services
         {
             return SpringBootAppRepository.GetPlateList(inputPlate);
         }
+
+        public List<LicencePlate> GetBrandListForUser(string inputBrand)
+        {
+            return SpringBootAppRepository.GetBrandList(inputBrand);
+        }
     }
 }

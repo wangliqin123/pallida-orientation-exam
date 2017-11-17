@@ -20,5 +20,10 @@ namespace SpringBootApp.Repositories
         {
             return SpringBootAppContext.LicenePlates.Where(x => x.Plate.Equals(inputPlate)).ToList();
         }
+
+        public List<LicencePlate> GetBrandList(string inputBrand)
+        {
+            return SpringBootAppContext.LicenePlates.Where(x => x.CarBrand.Equals(inputBrand)).ToList();
+        }
     }
 }

@@ -1,9 +1,7 @@
 ﻿using SpringBootApp.Entities;
 using SpringBootApp.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace SpringBootApp.Repositories
 {
@@ -26,12 +24,12 @@ namespace SpringBootApp.Repositories
             return SpringBootAppContext.LicenePlates.Where(x => x.CarBrand.Equals(inputBrand)).ToList();
         }
 
-        public List<LicencePlate> GetPoliceCars(string inputPlate)
+        public List<LicencePlate> GetPoliceCars(string police)
         {
             return SpringBootAppContext.LicenePlates.Where(x => x.Plate.StartsWith("RB")).ToList();
         }
 
-        public List<LicencePlate> GetDiplomatCars(string inputPlate)
+        public List<LicencePlate> GetDiplomatCars(string diplomat)
         {
             return SpringBootAppContext.LicenePlates.Where(x => x.Plate.StartsWith("DT")).ToList();
         }

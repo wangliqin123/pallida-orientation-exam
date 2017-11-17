@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SpringBootApp.Services;
 
 namespace SpringBootApp.Controllers
@@ -18,10 +14,10 @@ namespace SpringBootApp.Controllers
         }
 
         [HttpGet]
-        [Route("/{inputPlate}")]
-        public IActionResult Index([FromQuery] string inputPlate)
+        [Route("/{inputPlate}/{police}/{diplomat}")]
+        public IActionResult Index([FromQuery] string inputPlate, string police, string diplomat)
         {
-            if (ModelState.IsValid)
+            if ([FromQueryAttribute] == police)
             {
                 return View(SpringBootAppService.GetLicencePlateListForUser(inputPlate));
             }
@@ -30,18 +26,10 @@ namespace SpringBootApp.Controllers
 
         [HttpGet]
         [Route("/{brand}/search")]
-        public IActionResult Brand([FromBody] string inputBrand)
+        public IActionResult Brand([FromRoute] string inputBrand)
         {
-            //SpringBootAppService.GetBrandListForUser(inputBrand);
-            //return LocalRedirect("index");
-            return View(SpringBootAppService.GetBrandListForUser(inputBrand));
+            SpringBootAppService.GetBrandListForUser(inputBrand);
+            return LocalRedirect("index");
         }
-
-        //[HttpGet]
-        //[Route("api/search/{inputBrand}")]
-        //public IActionResult BrandListJson(string inputBrand)
-        //{
-        //    return Json(SpringBootAppService.GetBrandListForUser(inputBrand));
-        //}
     }
 }

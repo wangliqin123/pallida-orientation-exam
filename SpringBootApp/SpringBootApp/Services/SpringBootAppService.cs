@@ -1,9 +1,6 @@
 ﻿using SpringBootApp.Models;
 using SpringBootApp.Repositories;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SpringBootApp.Services
 {
@@ -26,14 +23,14 @@ namespace SpringBootApp.Services
             return SpringBootAppRepository.GetBrandList(inputBrand);
         }
 
-        public List<LicencePlate> GetPoliceCarsForUser(string inputPlate)
+        public List<LicencePlate> GetPoliceCarsForUser(string police)
         {
-            return SpringBootAppRepository.GetPoliceCars(inputPlate);
+            return SpringBootAppRepository.GetPoliceCars(police);
         }
 
-        public List<LicencePlate> GetDiplomatCarsForUser(string inputPlate)
+        public List<LicencePlate> GetDiplomatCarsForUser(string diplomat)
         {
-            return SpringBootAppRepository.GetDiplomatCars(inputPlate);
+            return SpringBootAppRepository.GetDiplomatCars(diplomat);
         }
     }
 }

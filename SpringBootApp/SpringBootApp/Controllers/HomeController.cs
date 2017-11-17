@@ -7,7 +7,6 @@ using SpringBootApp.Services;
 
 namespace SpringBootApp.Controllers
 {
-    [Route("search")]
     public class HomeController : Controller
     {
         SpringBootAppService SpringBootAppService;
@@ -18,15 +17,22 @@ namespace SpringBootApp.Controllers
         }
 
         [HttpGet]
-        [Route("/{inputPlate}")]
-        public IActionResult Index([FromBody] string inputPlate)
+        [Route("/search")]
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        [Route("/{inputPlate}/search")]
+        public IActionResult Index([FromQuery] string inputPlate)
         {
             return View(SpringBootAppService.GetLicencePlateListForUser(inputPlate));
         }
 
         [HttpGet]
         [Route("/search/{brand}")]
-        public IActionResult Brand([FromBody] string inputBrand)
+        public IActionResult Brand([FromQuery] string inputBrand)
         {
             return View(SpringBootAppService.GetBrandListForUser(inputBrand));
         }

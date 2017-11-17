@@ -21,7 +21,9 @@ namespace SpringBootApp.Controllers
         [Route("api/search/{inputBrand}")]
         public IActionResult BrandListJson(string inputBrand)
         {
-            return Json(SpringBootAppService.GetBrandListForUser(inputBrand));
+            var sameBrandOfCars = SpringBootAppService.GetDiplomatCarsForUser(inputBrand);
+
+            return Json(new { result = "ok", data = sameBrandOfCars });
         }
     }
 }

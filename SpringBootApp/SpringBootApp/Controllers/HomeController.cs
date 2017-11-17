@@ -14,14 +14,23 @@ namespace SpringBootApp.Controllers
         }
 
         [HttpGet]
-        [Route("/{inputPlate}/{police}/{diplomat}")]
+        [Route("/{inputPlate}")]
+        [Route("/{police}")]
+        [Route("/{diplomat}")]
         public IActionResult Index([FromQuery] string inputPlate, string police, string diplomat)
         {
-            if ([FromQueryAttribute] == police)
+            if (RouteData.Equals(police))
+            {
+                return View(SpringBootAppService.GetPoliceCarsForUser(police));
+            }
+            else if (RouteData.Equals(diplomat))
+            {
+                return View(SpringBootAppService.GetDiplomatCarsForUser(diplomat));
+            }
+            else
             {
                 return View(SpringBootAppService.GetLicencePlateListForUser(inputPlate));
-            }
-            return View();
+            }              
         }
 
         [HttpGet]

@@ -19,7 +19,7 @@
                 <td>@item.Id</td>
                 <td>@item.Plate</td>
                 <td>
-                    <form action="/search" method="get">
+                    <form action="/search/@item.CarBrand" method="get">
                         <h3><a href="/search/@item.CarBrand"> [@item.CarBrand]</a></h3>
                         <input type="hidden" name="CarBrand" value="@item.CarBrand" />
                     </form>                  

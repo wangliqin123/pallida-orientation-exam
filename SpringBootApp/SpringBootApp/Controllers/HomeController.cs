@@ -30,18 +30,18 @@ namespace SpringBootApp.Controllers
 
         [HttpGet]
         [Route("/{brand}/search")]
-        public IActionResult Brand([FromRoute] string inputBrand)
+        public IActionResult Brand([FromBody] string inputBrand)
         {
             //SpringBootAppService.GetBrandListForUser(inputBrand);
             //return LocalRedirect("index");
             return View(SpringBootAppService.GetBrandListForUser(inputBrand));
         }
 
-        [HttpGet]
-        [Route("api/search/{brand}")]
-        public IActionResult BrandListJson([FromBody] string inputBrand)
-        {
-            return Json(SpringBootAppService.GetBrandListForUser(inputBrand));
-        }
+        //[HttpGet]
+        //[Route("api/search/{inputBrand}")]
+        //public IActionResult BrandListJson(string inputBrand)
+        //{
+        //    return Json(SpringBootAppService.GetBrandListForUser(inputBrand));
+        //}
     }
 }
